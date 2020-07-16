@@ -1,0 +1,35 @@
+package com.mercadolibreapp.common;
+
+import android.app.Activity;
+import android.app.Application;
+
+import com.mercadolibreapp.di.component.ApplicationComponent;
+import com.mercadolibreapp.di.component.DaggerApplicationComponent;
+import com.mercadolibreapp.di.module.ContextModule;
+
+import javax.inject.Inject;
+
+import dagger.android.AndroidInjector;
+import dagger.android.DispatchingAndroidInjector;
+import dagger.android.HasActivityInjector;
+
+public class MyApplication extends Application {
+    ApplicationComponent applicationComponent;
+
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        applicationComponent = DaggerApplicationComponent.builder().contextModule(new ContextModule(this)).build();
+    }
+
+    public static MyApplication get(Activity activity){
+        return (MyApplication) activity.getApplication();
+    }
+
+    public ApplicationComponent getApplicationComponent() {
+        return applicationComponent;
+    }
+
+
+}
