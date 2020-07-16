@@ -1,18 +1,17 @@
 package com.mercadolibreapp.di.module;
 
 import com.mercadolibreapp.di.ActivityScope;
-import com.mercadolibreapp.ui.detailProduct.DetailProductFragment;
-import com.mercadolibreapp.ui.searchproducts.SearchActivityContract;
+import com.mercadolibreapp.ui.searchproducts.fragments.DetailProductFragment;
 
 import dagger.Module;
 import dagger.Provides;
 
 @Module(includes = {SearchActivityContextModule.class})
-public class FragmentDetailProductModule {
+public class DetailProductFragmentModule {
 
     private DetailProductFragment detailProductFragment;
 
-    public FragmentDetailProductModule(DetailProductFragment detailProductFragment){
+    public DetailProductFragmentModule(DetailProductFragment detailProductFragment){
         this.detailProductFragment = detailProductFragment;
     }
 

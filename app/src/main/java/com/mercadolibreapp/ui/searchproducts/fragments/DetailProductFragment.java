@@ -1,6 +1,5 @@
-package com.mercadolibreapp.ui.detailProduct;
+package com.mercadolibreapp.ui.searchproducts.fragments;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.mercadolibreapp.R;
-
-import dagger.android.support.AndroidSupportInjection;
 
 
 public class DetailProductFragment extends Fragment {

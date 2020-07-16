@@ -1,4 +1,4 @@
-package com.mercadolibreapp.ui;
+package com.mercadolibreapp.ui.splash;
 
 import androidx.appcompat.app.AppCompatActivity;
 

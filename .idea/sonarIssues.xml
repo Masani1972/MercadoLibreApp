@@ -158,6 +158,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/di/module/ResultProductsFragmentModule.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/di/module/SearchActivityContextModule.java">
           <value>
             <set />
@@ -204,6 +209,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/searchproducts/SearchPresenterImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/searchproducts/adapter/RecyclerViewAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/searchproducts/fragments/DetailProductFragment.java">
           <value>
             <set />
           </value>

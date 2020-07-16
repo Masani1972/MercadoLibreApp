@@ -1,4 +1,4 @@
-package com.mercadolibreapp.ui.searchproducts;
+package com.mercadolibreapp.ui.searchproducts.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;

@@ -1,7 +1,6 @@
 package com.mercadolibreapp.ui.searchproducts;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,10 +21,13 @@ import com.mercadolibreapp.di.ApplicationContext;
 import com.mercadolibreapp.di.component.ApplicationComponent;
 import com.mercadolibreapp.di.component.DaggerSearchActivityComponent;
 import com.mercadolibreapp.di.component.SearchActivityComponent;
-import com.mercadolibreapp.di.module.FragmentDetailProductModule;
+import com.mercadolibreapp.di.module.DetailProductFragmentModule;
+import com.mercadolibreapp.di.module.ResultProductsFragmentModule;
 import com.mercadolibreapp.di.module.SearchActivityContextModule;
 import com.mercadolibreapp.di.module.SearchActivityMvpModule;
-import com.mercadolibreapp.ui.detailProduct.DetailProductFragment;
+import com.mercadolibreapp.ui.searchproducts.fragments.DetailProductFragment;
+import com.mercadolibreapp.ui.searchproducts.adapter.RecyclerViewAdapter;
+import com.mercadolibreapp.ui.searchproducts.fragments.ResultProductsFragment;
 
 import java.util.List;
 
@@ -52,6 +54,9 @@ public class SearchActivity extends AppCompatActivity implements SearchActivityC
     DetailProductFragment detailProductFragment;
 
     @Inject
+    ResultProductsFragment resultProductsFragment;
+
+    @Inject
     @ApplicationContext
     public Context context;
 
@@ -76,18 +81,19 @@ public class SearchActivity extends AppCompatActivity implements SearchActivityC
         searchActivityComponent = DaggerSearchActivityComponent.builder()
                 .searchActivityContextModule(new SearchActivityContextModule(this))
                 .searchActivityMvpModule(new SearchActivityMvpModule(this))
-                .fragmentDetailProductModule(new FragmentDetailProductModule(new DetailProductFragment()))
+                .detailProductFragmentModule(new DetailProductFragmentModule(new DetailProductFragment()))
+                .resultProductsFragmentModule(new ResultProductsFragmentModule(new ResultProductsFragment()))
                 .applicationComponent(applicationComponent)
                 .build();
 
         searchActivityComponent.injectSearchActivity(this);
 
-        //initRecyclerView();
-        getSupportFragmentManager().beginTransaction().replace(R.id.principal, detailProductFragment).commit();
+        initRecyclerView();
+        getSupportFragmentManager().beginTransaction().replace(R.id.frProducts, resultProductsFragment).commit();
 
     }
 
-/*    @OnEditorAction(R.id.edtxtProductSearch)
+   @OnEditorAction(R.id.edtxtProductSearch)
     protected boolean searchProduct(int actionId) {
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
             searchPresenter.searchProduct("Samsung Galaxy S8");
@@ -95,7 +101,7 @@ public class SearchActivity extends AppCompatActivity implements SearchActivityC
             return true;
         }
         return false;
-    }*/
+    }
 
     @Override
     public void showData(List<ProductModel> data) {

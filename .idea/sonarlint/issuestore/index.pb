@@ -1,6 +1,4 @@
 
-l
-<app/src/main/java/com/mercadolibreapp/ui/SplashActivity.java,1/7/17741e8c1c856b1c1e7cc533c1d1c7bca60b43ad
 @
 app/build.gradle,f/4/f4a01d6a4fcb971362ec00a83903fd3902f52164
 k
@@ -47,11 +45,15 @@ y
 Iapp/src/main/java/com/mercadolibreapp/data/network/pojo/ProductModel.java,e/9/e92b18099011640211d57f884864d326b2b45680
 r
 Bapp/src/main/java/com/mercadolibreapp/di/module/AdapterModule.java,c/c/cc262365b7c61af1bc816bef6d8f1ba3bbdb1011
-€
-Papp/src/main/java/com/mercadolibreapp/ui/searchproducts/RecyclerViewAdapter.java,4/2/4284de9318b6a857087f6730c44a0bb2689a7fcd
 <
 build.gradle,f/0/f07866736216be0ee2aba49e392191aeae700a35
 €
 Papp/src/main/java/com/mercadolibreapp/di/module/FragmentDetailProductModule.java,d/a/dac0cfb5daa42d76e4ef7744038c598acf0b6d14
-
-Qapp/src/main/java/com/mercadolibreapp/ui/detailProduct/DetailProductFragment.java,8/7/871b27d0d20b8950c02bac43c6850348562e56dd
+ˆ
+Xapp/src/main/java/com/mercadolibreapp/ui/searchproducts/adapter/RecyclerViewAdapter.java,2/8/280dab1f022272c5f2ce964d34bd42e07a76d9fa
+Œ
+\app/src/main/java/com/mercadolibreapp/ui/searchproducts/fragments/DetailProductFragment.java,f/9/f9eb97b0c2d8a9093c1b5575c4dc04fb78f4a0b9
+s
+Capp/src/main/java/com/mercadolibreapp/ui/splash/SplashActivity.java,4/4/44b8e8ebd272ad36e32290666c8a2d17ae1de7cc
+
+]app/src/main/java/com/mercadolibreapp/ui/searchproducts/fragments/ResultProductsFragment.java,0/6/0669ad091caeacceea062e6b6bf4ec5d42f04a5c

@@ -1,7 +1,7 @@
 package com.mercadolibreapp.di.module;
 
 import com.mercadolibreapp.di.ActivityScope;
-import com.mercadolibreapp.ui.searchproducts.RecyclerViewAdapter;
+import com.mercadolibreapp.ui.searchproducts.adapter.RecyclerViewAdapter;
 import com.mercadolibreapp.ui.searchproducts.SearchActivity;
 
 import dagger.Module;

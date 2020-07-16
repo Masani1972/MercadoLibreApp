@@ -1,11 +1,6 @@
 
-]	java:S125["<This block of commented-out lines of code should be removed.(ñºşÍüÿÿÿÿ8î±¢¾µ.
-
-java:S1186~"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ğ‹Ôã8ÈŒò•µ.
-S
-java:S1144‚"5Remove this unused private "initRecyclerView" method.(šªŸÈ8¤€“¾µ.
 £
 java:S1186y"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Õ§Ù­úÿÿÿÿ8ÈŒò•µ.
-X	java:S125U"<This block of commented-out lines of code should be removed.(À¢ï8¤€“¾µ.
-]
-java:S1128";Remove this unused import 'androidx.fragment.app.Fragment'.(‚Š©“ùÿÿÿÿ8‚ØÜ½µ.
+
+java:S1186~"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ğ‹Ôã8ÈŒò•µ.
+]	java:S125^"<This block of commented-out lines of code should be removed.(ßúÁ¾ÿÿÿÿÿ8ƒÁàËµ.
