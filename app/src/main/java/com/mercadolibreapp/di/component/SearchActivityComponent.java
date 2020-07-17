@@ -3,8 +3,7 @@ package com.mercadolibreapp.di.component;
 import android.content.Context;
 
 import com.mercadolibreapp.di.ActivityContext;
-import com.mercadolibreapp.di.ActivityScope;
-import com.mercadolibreapp.di.module.AdapterModule;
+import com.mercadolibreapp.di.scope.ActivityScope;
 import com.mercadolibreapp.di.module.DetailProductFragmentModule;
 import com.mercadolibreapp.di.module.ResultProductsFragmentModule;
 import com.mercadolibreapp.di.module.SearchActivityMvpModule;
@@ -14,7 +13,7 @@ import dagger.Component;
 
 
 @ActivityScope
-@Component(modules = {AdapterModule.class, SearchActivityMvpModule.class, DetailProductFragmentModule.class, ResultProductsFragmentModule.class}, dependencies = ApplicationComponent.class)
+@Component(modules = {SearchActivityMvpModule.class, DetailProductFragmentModule.class, ResultProductsFragmentModule.class}, dependencies = ApplicationComponent.class)
 public interface SearchActivityComponent  {
 
     @ActivityContext

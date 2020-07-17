@@ -3,7 +3,7 @@ package com.mercadolibreapp.di.module;
 import android.content.Context;
 
 import com.mercadolibreapp.di.ActivityContext;
-import com.mercadolibreapp.di.ActivityScope;
+import com.mercadolibreapp.di.scope.ActivityScope;
 import com.mercadolibreapp.ui.searchproducts.SearchActivity;
 
 import dagger.Module;

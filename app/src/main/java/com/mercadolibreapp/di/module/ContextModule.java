@@ -3,7 +3,7 @@ package com.mercadolibreapp.di.module;
 import android.content.Context;
 
 import com.mercadolibreapp.di.ApplicationContext;
-import com.mercadolibreapp.di.ApplicationScope;
+import com.mercadolibreapp.di.scope.ApplicationScope;
 
 
 import dagger.Module;

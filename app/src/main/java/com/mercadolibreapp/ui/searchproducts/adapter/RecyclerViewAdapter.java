@@ -5,9 +5,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mercadolibreapp.R;
+import com.mercadolibreapp.data.network.pojo.PictureProduct;
 import com.mercadolibreapp.data.network.pojo.ProductModel;
 import com.squareup.picasso.Picasso;
 
@@ -21,6 +23,7 @@ import javax.inject.Inject;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
 
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
@@ -61,14 +64,27 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         @BindView(R.id.ivPreview)
         ImageView ivPreview;
 
-        ViewHolder(View view) {
-            super(view);
-            ButterKnife.bind(this,view);
+        @BindView(R.id.layoutProduct)
+        ConstraintLayout layoutProduct;
+
+        ViewHolder(View itemView) {
+            super(itemView);
+            ButterKnife.bind(this, itemView);
+
+
+            layoutProduct.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickListener.launchIntent(data.get(getAdapterPosition()).pictures );
+                }
+            });
         }
+
+
     }
 
     public interface ClickListener {
-        void launchIntent(String name);
+        void launchIntent( List<PictureProduct> listImages);
     }
 
     public void setData(List<ProductModel> data) {

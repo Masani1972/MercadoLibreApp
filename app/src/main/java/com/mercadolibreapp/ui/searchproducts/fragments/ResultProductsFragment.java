@@ -3,48 +3,49 @@ package com.mercadolibreapp.ui.searchproducts.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.DefaultItemAnimator;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.mercadolibreapp.R;
+import com.mercadolibreapp.R2;
+import com.mercadolibreapp.data.network.pojo.PictureProduct;
+import com.mercadolibreapp.data.network.pojo.ProductModel;
+import com.mercadolibreapp.ui.searchproducts.adapter.RecyclerViewAdapter;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ResultProductsFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ResultProductsFragment extends Fragment {
+public class ResultProductsFragment extends Fragment implements RecyclerViewAdapter.ClickListener{
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String ARG_LIST_PRODUCTS = "list_products";
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private List<ProductModel> data;
+
+    @BindView(R2.id.recyclerView)
+    RecyclerView recyclerView;
+
 
     public ResultProductsFragment() {
-        // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment ResultProductsFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static ResultProductsFragment newInstance(String param1, String param2) {
+
+    public static ResultProductsFragment newInstance() {
         ResultProductsFragment fragment = new ResultProductsFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
@@ -52,15 +53,31 @@ public class ResultProductsFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+            data = (List<ProductModel>) getArguments().getSerializable(ARG_LIST_PRODUCTS);
         }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_result_products, container, false);
+
+        View rootView = inflater.inflate(R.layout.fragment_result_products, container, false);
+        ButterKnife.bind(this,rootView);
+
+        RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this);
+        recyclerViewAdapter.setData(data);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setAdapter(recyclerViewAdapter);
+        recyclerView.setItemAnimator(new DefaultItemAnimator());
+        return rootView;
+    }
+
+    @Override
+    public void launchIntent( List<PictureProduct> listImages) {
+        DetailProductFragment fragmentDetail = DetailProductFragment.newInstance(listImages);
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.frProducts, fragmentDetail);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 }

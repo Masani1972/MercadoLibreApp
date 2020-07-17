@@ -5,10 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
-
     tools:context=".ui.searchproducts.SearchActivity">
-
-
 
     <EditText
         android:id="@+id/edtxtProductSearch"
@@ -23,14 +20,6 @@
         android:drawableLeft="@android:drawable/ic_menu_search"
         />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtxtProductSearch" />
 
     <ProgressBar
         android:id="@+id/progressBar"
@@ -44,11 +33,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/frProducts"
-        >
-    </FrameLayout>
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtProductSearch"></FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,8 +1,7 @@
 package com.mercadolibreapp.ui.searchproducts;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -26,9 +25,10 @@ import com.mercadolibreapp.di.module.ResultProductsFragmentModule;
 import com.mercadolibreapp.di.module.SearchActivityContextModule;
 import com.mercadolibreapp.di.module.SearchActivityMvpModule;
 import com.mercadolibreapp.ui.searchproducts.fragments.DetailProductFragment;
-import com.mercadolibreapp.ui.searchproducts.adapter.RecyclerViewAdapter;
 import com.mercadolibreapp.ui.searchproducts.fragments.ResultProductsFragment;
+import com.mercadolibreapp.utils.TypeError;
 
+import java.io.Serializable;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -38,12 +38,9 @@ import butterknife.ButterKnife;
 import butterknife.OnEditorAction;
 
 
-public class SearchActivity extends AppCompatActivity implements SearchActivityContract.View, RecyclerViewAdapter.ClickListener {
+public class SearchActivity extends FragmentActivity implements SearchActivityContract.View{
     @BindView(R2.id.edtxtProductSearch)
     EditText productSearch;
-
-    @BindView(R2.id.recyclerView)
-    RecyclerView recyclerView;
 
     @BindView(R2.id.progressBar)
     ProgressBar progressBar;
@@ -65,9 +62,6 @@ public class SearchActivity extends AppCompatActivity implements SearchActivityC
     public Context activityContext;
 
     @Inject
-    public RecyclerViewAdapter recyclerViewAdapter;
-
-    @Inject
     SearchPresenterImpl searchPresenter;
 
 
@@ -87,16 +81,13 @@ public class SearchActivity extends AppCompatActivity implements SearchActivityC
                 .build();
 
         searchActivityComponent.injectSearchActivity(this);
-
-        initRecyclerView();
-        getSupportFragmentManager().beginTransaction().replace(R.id.frProducts, resultProductsFragment).commit();
-
     }
 
    @OnEditorAction(R.id.edtxtProductSearch)
     protected boolean searchProduct(int actionId) {
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-            searchPresenter.searchProduct("Samsung Galaxy S8");
+            searchPresenter.searchProduct(productSearch.getText().toString());
+           // searchPresenter.searchProduct("Samsung Galaxy S8");
             //searchPresenter.searchProduct("Motorola G6");
             return true;
         }
@@ -105,12 +96,20 @@ public class SearchActivity extends AppCompatActivity implements SearchActivityC
 
     @Override
     public void showData(List<ProductModel> data) {
-        recyclerViewAdapter.setData(data);
+        Bundle dataBundle = new Bundle();
+        dataBundle.putSerializable("list_products", (Serializable) data);
+
+        FragmentTransaction t = getSupportFragmentManager()
+                .beginTransaction();
+        resultProductsFragment.setArguments(dataBundle);
+        t.replace(R.id.frProducts, resultProductsFragment);
+        t.commit();
     }
 
     @Override
-    public void showError(String statusMessage) {
-        Toast.makeText(context, statusMessage, Toast.LENGTH_SHORT).show();
+    public void showError(TypeError typeError,String statusMessage) {
+        String message = typeError.name().equals(TypeError.ERROR_DATA_SERVICE)?getResources().getString(R.string.errorProductSearch): getResources().getString(R.string.errorDataEmpty);
+        Toast.makeText(context,  message + statusMessage, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -128,14 +127,5 @@ public class SearchActivity extends AppCompatActivity implements SearchActivityC
 
     }
 
-    @Override
-    public void launchIntent(String name) {
-
-    }
-
-    private void initRecyclerView() {
-        recyclerView.setLayoutManager(new LinearLayoutManager(activityContext));
-        recyclerView.setAdapter(recyclerViewAdapter);
-    }
 
 }

@@ -1,6 +1,6 @@
 package com.mercadolibreapp.di.module;
 
-import com.mercadolibreapp.di.ActivityScope;
+import com.mercadolibreapp.di.scope.ActivityScope;
 import com.mercadolibreapp.ui.searchproducts.fragments.DetailProductFragment;
 
 import dagger.Module;

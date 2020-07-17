@@ -3,7 +3,6 @@
 
     <!--Activity Search-->
     <string name="edtxtProductSearch">Ingrese nombre producto</string>
-    <string name="erroProductSearch">Error obteniendo datos </string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="errorProductSearch">Error obteniendo datos </string>
+    <string name="errorDataEmpty">Debe ingresar datos para la busqueda </string>
 </resources>

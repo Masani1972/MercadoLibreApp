@@ -1,7 +1,8 @@
-package com.mercadolibreapp.data.network;
+package com.mercadolibreapp.di.module;
 
 import com.mercadolibreapp.common.Constanst;
-import com.mercadolibreapp.di.ApplicationScope;
+import com.mercadolibreapp.data.network.ApiService;
+import com.mercadolibreapp.di.scope.ApplicationScope;
 
 import java.util.concurrent.TimeUnit;
 
