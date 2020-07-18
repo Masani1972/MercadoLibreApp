@@ -1,10 +1,9 @@
-package com.mercadolibreapp.ui.searchproducts.adapter;
+package com.mercadolibreapp.ui.detail_products.adapter;
 
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.viewpager.widget.PagerAdapter;
@@ -18,10 +17,16 @@ public class ViewPagerAdapter extends PagerAdapter {
     private Context context;
     private List<PictureProduct> images;
 
-    public ViewPagerAdapter(Context context,  List<PictureProduct>images) {
+    public ViewPagerAdapter(Context context) {
         this.context = context;
-        this.images = images;
+
     }
+
+    public void setImages(List<PictureProduct> images) {
+        if (images != null && !images.isEmpty())
+            this.images = images;
+    }
+
     @Override
     public int getCount() {return images.size();
     }
@@ -33,13 +38,12 @@ public class ViewPagerAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         ImageView imageView = new ImageView(context);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(50, 50);
-        imageView.setLayoutParams(layoutParams);
 
+        String url = images.get(position).url.replaceAll("http","https");
         Picasso.with(context)
-                .load(images.get(position).url)
-                .fit()
-                .centerCrop()
+                .load(url)
+                .resize(200, 200)
+                .centerInside()
                 .into(imageView);
 
         container.addView(imageView);
@@ -49,4 +53,6 @@ public class ViewPagerAdapter extends PagerAdapter {
     public void destroyItem(@NonNull ViewGroup container, int position, @NonNull Object object) {
         container.removeView((View) object);
     }
+
+
 }

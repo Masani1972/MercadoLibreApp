@@ -1,7 +1,7 @@
 package com.mercadolibreapp.di.module;
 
  import com.mercadolibreapp.di.scope.ActivityScope;
-import com.mercadolibreapp.ui.searchproducts.SearchActivityContract;
+import com.mercadolibreapp.ui.search_products.SearchActivityContract;
 
 import dagger.Module;
 import dagger.Provides;

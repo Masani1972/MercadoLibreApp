@@ -1,4 +1,4 @@
-package com.mercadolibreapp.ui.searchproducts;
+package com.mercadolibreapp.ui.search_products;
 
 
 import com.mercadolibreapp.data.network.ApiService;
@@ -14,8 +14,6 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 public class SearchPresenterImpl implements SearchActivityContract.Presenter {
-    private static final String STATUS = "active";
-    private static final String SITE_ID = "MLA";
     private ApiService apiService;
     private SearchActivityContract.View mView;
 
@@ -31,7 +29,7 @@ public class SearchPresenterImpl implements SearchActivityContract.Presenter {
         if(q != null && !q.isEmpty()) {
             mView.showProgress();
 
-            apiService.getProductForSearch(STATUS, SITE_ID, q)
+            apiService.getProductForSearch(q)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(new Observer<SearchProductsResponse>() {

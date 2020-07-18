@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.mercadolibreapp.R;
-import com.mercadolibreapp.ui.searchproducts.SearchActivity;
+import com.mercadolibreapp.ui.search_products.SearchActivity;
 
 public class SplashActivity extends AppCompatActivity {
 

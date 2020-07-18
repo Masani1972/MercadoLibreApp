@@ -1,4 +1,4 @@
-package com.mercadolibreapp.ui.searchproducts;
+package com.mercadolibreapp.ui.search_products;
 
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
@@ -20,12 +20,10 @@ import com.mercadolibreapp.di.ApplicationContext;
 import com.mercadolibreapp.di.component.ApplicationComponent;
 import com.mercadolibreapp.di.component.DaggerSearchActivityComponent;
 import com.mercadolibreapp.di.component.SearchActivityComponent;
-import com.mercadolibreapp.di.module.DetailProductFragmentModule;
 import com.mercadolibreapp.di.module.ResultProductsFragmentModule;
 import com.mercadolibreapp.di.module.SearchActivityContextModule;
 import com.mercadolibreapp.di.module.SearchActivityMvpModule;
-import com.mercadolibreapp.ui.searchproducts.fragments.DetailProductFragment;
-import com.mercadolibreapp.ui.searchproducts.fragments.ResultProductsFragment;
+import com.mercadolibreapp.ui.result_products.ResultProductsFragment;
 import com.mercadolibreapp.utils.TypeError;
 
 import java.io.Serializable;
@@ -48,9 +46,6 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
     SearchActivityComponent searchActivityComponent;
 
     @Inject
-    DetailProductFragment detailProductFragment;
-
-    @Inject
     ResultProductsFragment resultProductsFragment;
 
     @Inject
@@ -64,7 +59,6 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
     @Inject
     SearchPresenterImpl searchPresenter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,7 +69,6 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
         searchActivityComponent = DaggerSearchActivityComponent.builder()
                 .searchActivityContextModule(new SearchActivityContextModule(this))
                 .searchActivityMvpModule(new SearchActivityMvpModule(this))
-                .detailProductFragmentModule(new DetailProductFragmentModule(new DetailProductFragment()))
                 .resultProductsFragmentModule(new ResultProductsFragmentModule(new ResultProductsFragment()))
                 .applicationComponent(applicationComponent)
                 .build();
@@ -86,8 +79,8 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
    @OnEditorAction(R.id.edtxtProductSearch)
     protected boolean searchProduct(int actionId) {
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-            searchPresenter.searchProduct(productSearch.getText().toString());
-           // searchPresenter.searchProduct("Samsung Galaxy S8");
+            //searchPresenter.searchProduct(productSearch.getText().toString());
+            searchPresenter.searchProduct("Samsung Galaxy S8");
             //searchPresenter.searchProduct("Motorola G6");
             return true;
         }

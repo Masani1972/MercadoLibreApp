@@ -13,12 +13,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/mercadolibreapp/di/component/DaggerDetailFragmentComponent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/mercadolibreapp/di/component/DaggerSearchActivityComponent.java">
           <value>
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/mercadolibreapp/di/module/RetrofitModule_GetRetrofitFactory.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/build/generated/ap_generated_sources/debug/out/com/mercadolibreapp/ui/searchproducts/adapter/RecyclerViewAdapter$ViewHolder_ViewBinding.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/build/generated/source/r2/debug/com/mercadolibreapp/R2.java">
           <value>
             <set />
           </value>
@@ -88,6 +103,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/data/network/pojo/ProductInfo.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/data/network/pojo/ProductModel.java">
           <value>
             <set />
@@ -138,6 +158,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/di/component/DetailFragmentComponent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/di/component/DetailProductComponent.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/di/component/SearchActivityComponent.java">
           <value>
             <set />
@@ -154,6 +184,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/di/module/ContextModule.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/di/module/DetailFragmentMvpModule.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/di/module/DetailProductFragmentModule.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/di/module/DetailProductMvpModule.java">
           <value>
             <set />
           </value>
@@ -188,6 +233,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/di/scope/FragmentScope.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/SplashActivity.java">
           <value>
             <set />
@@ -204,6 +254,76 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/detailProduct/detailProductFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/detailProducts/DetailPresenterImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/detailProducts/DetailProductFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/detail_products/DetailPresenterImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/detail_products/DetailProductContract.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/detail_products/DetailProductFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/detail_products/adapter/ViewPagerAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/result_products/RecyclerViewAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/result_products/ResultProductsFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/result_products/adapter/RecyclerViewAdapter.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/search_products/SearchActivity.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/search_products/SearchPresenterImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/search_products/fragments/ResultProductsFragment.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/searchproducts/DetailPresenterImpl.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/searchproducts/DetailProductContract.java">
           <value>
             <set />
           </value>
@@ -264,6 +384,11 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/layout-land/activity_search.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/res/layout-land/fragment_detail_product.xml">
           <value>
             <set />
           </value>

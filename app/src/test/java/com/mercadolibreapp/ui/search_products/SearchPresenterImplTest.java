@@ -1,4 +1,4 @@
-package com.mercadolibreapp.ui.searchproducts;
+package com.mercadolibreapp.ui.search_products;
 
 
 import com.mercadolibreapp.data.network.ApiService;
@@ -14,6 +14,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.MockitoJUnitRunner;
 
 
+import okhttp3.mockwebserver.MockResponse;
 import okhttp3.mockwebserver.MockWebServer;
 
 import static org.mockito.Mockito.verify;
@@ -50,19 +51,21 @@ public class SearchPresenterImplTest {
 
     @Test
     public void searchProduct_valueEmpty() {
-       /* MockResponse response = new MockResponse();
-        response.setResponseCode(404);*/
-
         searchPresenter.searchProduct("");
         verify(view).showError(TypeError.ERROR_VALIDATION_DATA,"");
     }
 
     @Test
     public void searchProduct_valuenull() {
-       /* MockResponse response = new MockResponse();
-        response.setResponseCode(404);*/
-
         searchPresenter.searchProduct(null);
         verify(view).showError(TypeError.ERROR_VALIDATION_DATA,"");
+    }
+
+    @Test
+    public void searchProduct_404() {
+
+        MockResponse response = new MockResponse();
+        response.setResponseCode(404);
+
     }
 }

@@ -1,4 +1,4 @@
-package com.mercadolibreapp.ui.searchproducts;
+package com.mercadolibreapp.ui.search_products;
 
 import com.mercadolibreapp.data.network.pojo.ProductModel;
 import com.mercadolibreapp.utils.TypeError;

@@ -1,4 +1,4 @@
-package com.mercadolibreapp.ui.searchproducts.adapter;
+package com.mercadolibreapp.ui.result_products;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,6 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mercadolibreapp.R;
-import com.mercadolibreapp.data.network.pojo.PictureProduct;
 import com.mercadolibreapp.data.network.pojo.ProductModel;
 import com.squareup.picasso.Picasso;
 
@@ -45,8 +44,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         Context context = holder.itemView.getContext();
         holder.txtName.setText(data.get(position).name);
-        holder.txtStatus.setText(data.get(position).status);
-        Picasso.with(context).load(data.get(position).pictures.get(0).url).into(holder.ivPreview);
+        holder.txtPrice.setText(data.get(position).price);
+        String url = data.get(position).thumbnail.replaceAll("http","https");
+        Picasso.with(context).load(url).into(holder.ivPreview);
     }
 
     @Override
@@ -58,8 +58,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         @BindView(R.id.txtName)
         TextView txtName;
 
-        @BindView(R.id.txtStatus)
-        TextView txtStatus;
+        @BindView(R.id.txtPrice)
+        TextView txtPrice;
 
         @BindView(R.id.ivPreview)
         ImageView ivPreview;
@@ -75,7 +75,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             layoutProduct.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    clickListener.launchIntent(data.get(getAdapterPosition()).pictures );
+                    clickListener.launchIntent(data.get(getAdapterPosition()).id );
                 }
             });
         }
@@ -84,7 +84,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     }
 
     public interface ClickListener {
-        void launchIntent( List<PictureProduct> listImages);
+        void launchIntent( String id);
     }
 
     public void setData(List<ProductModel> data) {

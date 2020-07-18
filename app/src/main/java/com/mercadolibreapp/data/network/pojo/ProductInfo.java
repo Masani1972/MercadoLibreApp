@@ -3,23 +3,20 @@ package com.mercadolibreapp.data.network.pojo;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import java.util.List;
 
-public class ProductModel {
-
-    @SerializedName("id")
-    @Expose
-    public String id;
+public class ProductInfo {
 
     @SerializedName("title")
     @Expose
     public String name;
 
-    @SerializedName("price")
+    @SerializedName("garantía")
     @Expose
-    public String price;
+    public String garantía;
 
-    @SerializedName("thumbnail")
+
+   @SerializedName("pictures")
     @Expose
-    public String thumbnail;
-
+    public List<PictureProduct> pictures;
 }

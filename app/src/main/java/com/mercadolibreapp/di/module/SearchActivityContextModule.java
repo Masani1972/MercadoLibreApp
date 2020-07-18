@@ -4,7 +4,7 @@ import android.content.Context;
 
 import com.mercadolibreapp.di.ActivityContext;
 import com.mercadolibreapp.di.scope.ActivityScope;
-import com.mercadolibreapp.ui.searchproducts.SearchActivity;
+import com.mercadolibreapp.ui.search_products.SearchActivity;
 
 import dagger.Module;
 import dagger.Provides;
