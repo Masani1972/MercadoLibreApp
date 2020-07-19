@@ -18,6 +18,7 @@ public interface ApiService {
     @GET("/items/{id}")
     Observable<ProductInfo> getProductInfo
             (@Path("id") String id);
+
 }
 
 

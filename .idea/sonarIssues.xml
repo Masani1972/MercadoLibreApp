@@ -373,6 +373,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/utils/UtilHelper.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/res/drawable/splash.xml">
           <value>
             <set />
@@ -449,6 +454,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/app/src/test/java/com/mercadolibreapp/data/network/ApiServiceTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/com/mercadolibreapp/ui/detail_products/DetailPresenterImplTest.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/test/java/com/mercadolibreapp/ui/search_products/SearchPresenterImplTest.java">
           <value>
             <set />
           </value>

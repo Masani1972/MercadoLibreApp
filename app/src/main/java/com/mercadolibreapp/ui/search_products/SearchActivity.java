@@ -80,8 +80,8 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
     protected boolean searchProduct(int actionId) {
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
             //searchPresenter.searchProduct(productSearch.getText().toString());
-            searchPresenter.searchProduct("Samsung Galaxy S8");
-            //searchPresenter.searchProduct("Motorola G6");
+           // searchPresenter.searchProduct("Samsung Galaxy S8");
+            searchPresenter.searchProduct("Motorola G6");
             return true;
         }
         return false;

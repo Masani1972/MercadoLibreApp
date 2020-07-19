@@ -9,23 +9,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mercadolibreapp.R;
 import com.mercadolibreapp.R2;
 import com.mercadolibreapp.common.MyApplication;
-import com.mercadolibreapp.data.network.ApiService;
 import com.mercadolibreapp.data.network.pojo.PictureProduct;
 import com.mercadolibreapp.data.network.pojo.ProductInfo;
 import com.mercadolibreapp.di.component.ApplicationComponent;
 import com.mercadolibreapp.di.component.DaggerDetailFragmentComponent;
 import com.mercadolibreapp.di.component.DetailFragmentComponent;
-import com.mercadolibreapp.di.component.SearchActivityComponent;
 import com.mercadolibreapp.di.module.DetailFragmentMvpModule;
-import com.mercadolibreapp.di.module.ResultProductsFragmentModule;
-import com.mercadolibreapp.di.module.SearchActivityContextModule;
-import com.mercadolibreapp.di.module.SearchActivityMvpModule;
 import com.mercadolibreapp.ui.detail_products.adapter.ViewPagerAdapter;
-import com.mercadolibreapp.ui.result_products.ResultProductsFragment;
 
 import java.util.List;
 
@@ -35,7 +30,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 
-public class DetailProductFragment extends Fragment  implements DetailProductContract.View{
+public class DetailProductFragment extends Fragment implements DetailProductContract.View {
 
     @BindView(R2.id.view_pager)
     ViewPager view_pager;
@@ -43,8 +38,8 @@ public class DetailProductFragment extends Fragment  implements DetailProductCon
     @BindView(R2.id.txtCountPhotos)
     TextView txtCountPhotos;
 
-@Inject
-        DetailPresenterImpl presenter;
+    @Inject
+    DetailPresenterImpl presenter;
 
     DetailFragmentComponent detailFragmentComponent;
 
@@ -68,15 +63,12 @@ public class DetailProductFragment extends Fragment  implements DetailProductCon
 
         ApplicationComponent applicationComponent = MyApplication.get(this).getApplicationComponent();
 
-
         detailFragmentComponent = DaggerDetailFragmentComponent.builder()
                 .detailFragmentMvpModule(new DetailFragmentMvpModule(this))
                 .applicationComponent(applicationComponent)
                 .build();
 
         detailFragmentComponent.injectDetailFragment(this);
-
-
 
         if (getArguments() != null) {
             String id = getArguments().getString(ARG_ID_PRODUCT);
@@ -85,20 +77,19 @@ public class DetailProductFragment extends Fragment  implements DetailProductCon
     }
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
         View rootView = inflater.inflate(R.layout.fragment_detail_product, container, false);
-        ButterKnife.bind(this,rootView);
+        ButterKnife.bind(this, rootView);
         adapter = new ViewPagerAdapter(rootView.getContext());
         return rootView;
     }
 
 
     private void initViews() {
-        txtCountPhotos.setText(listImages.size()+ "  " + getResources().getString(R.string.txtPhotos));
+        txtCountPhotos.setText(listImages.size() + "  " + getResources().getString(R.string.txtPhotos));
     }
 
     @Override
@@ -110,8 +101,8 @@ public class DetailProductFragment extends Fragment  implements DetailProductCon
     }
 
     @Override
-    public void showError( String statusMessage) {
-
+    public void showError(String message) {
+        Toast.makeText(getActivity().getBaseContext(),  message , Toast.LENGTH_SHORT).show();
     }
 
 }
