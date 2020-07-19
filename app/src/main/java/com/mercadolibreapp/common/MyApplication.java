@@ -9,11 +9,6 @@ import com.mercadolibreapp.di.component.ApplicationComponent;
 import com.mercadolibreapp.di.component.DaggerApplicationComponent;
 import com.mercadolibreapp.di.module.ContextModule;
 
-import javax.inject.Inject;
-
-import dagger.android.AndroidInjector;
-import dagger.android.DispatchingAndroidInjector;
-import dagger.android.HasActivityInjector;
 
 public class MyApplication extends Application {
     ApplicationComponent applicationComponent;

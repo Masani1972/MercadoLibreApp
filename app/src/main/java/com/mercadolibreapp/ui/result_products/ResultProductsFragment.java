@@ -37,14 +37,15 @@ public class ResultProductsFragment extends Fragment implements RecyclerViewAdap
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            data = (List<ProductModel>) getArguments().getSerializable(ARG_LIST_PRODUCTS);
-        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        if (getArguments() != null) {
+            data = (List<ProductModel>) getArguments().getSerializable(ARG_LIST_PRODUCTS);
+        }
 
         View rootView = inflater.inflate(R.layout.fragment_result_products, container, false);
         ButterKnife.bind(this,rootView);
@@ -64,8 +65,10 @@ public class ResultProductsFragment extends Fragment implements RecyclerViewAdap
     private void initRecyclerView() {
         RecyclerViewAdapter recyclerViewAdapter = new RecyclerViewAdapter(this);
         recyclerViewAdapter.setData(data);
+        recyclerViewAdapter.notifyDataSetChanged();
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recyclerViewAdapter);
+
         recyclerView.setItemAnimator(new DefaultItemAnimator());
     }
 }

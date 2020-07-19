@@ -12,4 +12,8 @@
         <item name="android:windowBackground">@drawable/splash</item>
     </style>
 
+    <style name="MyDialogTheme" parent="AppTheme">
+        <item name="android:background">@color/colorAccent</item>
+    </style>
+
 </resources>

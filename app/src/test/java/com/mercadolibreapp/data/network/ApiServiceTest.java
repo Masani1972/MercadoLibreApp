@@ -66,7 +66,6 @@ public class ApiServiceTest {
     public void getProductForSearchError() throws InterruptedException {
         MockResponse mockResponse = new MockResponse();
         mockResponse.setResponseCode(404);
-        mockResponse.setBody(getResponse("searchProduct"));
         mMockWebServer.enqueue(mockResponse);
 
         ApiService ourApi = retrofit.create(ApiService.class);
@@ -98,7 +97,6 @@ public class ApiServiceTest {
     public void getProductInfoError() throws InterruptedException {
         MockResponse mockResponse = new MockResponse();
         mockResponse.setResponseCode(404);
-        mockResponse.setBody(getResponse("productInfo"));
         mMockWebServer.enqueue(mockResponse);
 
         ApiService ourApi = retrofit.create(ApiService.class);

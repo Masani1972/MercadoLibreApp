@@ -308,6 +308,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/search_products/SearchActivityContract.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/ui/search_products/SearchPresenterImpl.java">
           <value>
             <set />
@@ -368,7 +373,27 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/utils/TypeAlert.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/utils/TypeError.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/utils/UtilAlertClass.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/utils/UtilAlertClassBuilder.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/utils/UtilDialogClass.java">
           <value>
             <set />
           </value>

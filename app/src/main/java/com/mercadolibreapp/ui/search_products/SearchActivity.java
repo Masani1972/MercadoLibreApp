@@ -1,8 +1,10 @@
 package com.mercadolibreapp.ui.search_products;
 
+import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
@@ -24,7 +26,9 @@ import com.mercadolibreapp.di.module.ResultProductsFragmentModule;
 import com.mercadolibreapp.di.module.SearchActivityContextModule;
 import com.mercadolibreapp.di.module.SearchActivityMvpModule;
 import com.mercadolibreapp.ui.result_products.ResultProductsFragment;
+import com.mercadolibreapp.utils.TypeAlert;
 import com.mercadolibreapp.utils.TypeError;
+import com.mercadolibreapp.utils.UtilAlertClassBuilder;
 
 import java.io.Serializable;
 import java.util.List;
@@ -79,9 +83,8 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
    @OnEditorAction(R.id.edtxtProductSearch)
     protected boolean searchProduct(int actionId) {
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-            //searchPresenter.searchProduct(productSearch.getText().toString());
+            searchPresenter.searchProduct(productSearch.getText().toString());
            // searchPresenter.searchProduct("Samsung Galaxy S8");
-            searchPresenter.searchProduct("Motorola G6");
             return true;
         }
         return false;
@@ -91,18 +94,28 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
     public void showData(List<ProductModel> data) {
         Bundle dataBundle = new Bundle();
         dataBundle.putSerializable("list_products", (Serializable) data);
-
-        FragmentTransaction t = getSupportFragmentManager()
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frProducts);
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager()
                 .beginTransaction();
         resultProductsFragment.setArguments(dataBundle);
-        t.replace(R.id.frProducts, resultProductsFragment);
-        t.commit();
+        if (getSupportFragmentManager().getFragments().isEmpty())
+            fragmentTransaction.replace(R.id.frProducts, resultProductsFragment);
+        else {
+            fragmentTransaction.detach(fragment);
+            fragmentTransaction.attach(fragment);
+        }
+        fragmentTransaction.commit();
     }
 
     @Override
     public void showError(TypeError typeError,String statusMessage) {
         String message = typeError.name().equals(TypeError.ERROR_DATA_SERVICE)?getResources().getString(R.string.errorProductSearch): getResources().getString(R.string.errorDataEmpty);
-        Toast.makeText(context,  message + statusMessage, Toast.LENGTH_SHORT).show();
+        AlertDialog alertDialog = new UtilAlertClassBuilder(this)
+                .setTitle(getResources().getString(R.string.app_name))
+                .setMessage(message)
+                .setType(TypeAlert.TYPE_INFO).build();
+
+        alertDialog.show();
     }
 
     @Override

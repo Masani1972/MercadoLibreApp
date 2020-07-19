@@ -2,9 +2,12 @@ package com.mercadolibreapp.ui.search_products;
 
 
 import com.mercadolibreapp.data.network.ApiService;
+import com.mercadolibreapp.data.network.pojo.ProductModel;
 import com.mercadolibreapp.data.network.pojo.SearchProductsResponse;
 import com.mercadolibreapp.utils.TypeError;
 
+
+import java.util.List;
 
 import javax.inject.Inject;
 
