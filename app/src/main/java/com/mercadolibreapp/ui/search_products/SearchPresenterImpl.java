@@ -1,13 +1,12 @@
 package com.mercadolibreapp.ui.search_products;
 
 
+import android.content.res.Resources;
+
+import com.mercadolibreapp.R;
 import com.mercadolibreapp.data.network.ApiService;
-import com.mercadolibreapp.data.network.pojo.ProductModel;
 import com.mercadolibreapp.data.network.pojo.SearchProductsResponse;
-import com.mercadolibreapp.utils.TypeError;
-
-
-import java.util.List;
+import com.mercadolibreapp.utils.TypeAlert;
 
 import javax.inject.Inject;
 
@@ -44,23 +43,25 @@ public class SearchPresenterImpl implements SearchActivityContract.Presenter {
 
                         @Override
                         public void onNext(SearchProductsResponse searchProductsResponse) {
-                            mView.showData(searchProductsResponse.products);
+                            if (searchProductsResponse.products != null && !searchProductsResponse.products.isEmpty())
+                                mView.showData(searchProductsResponse.products);
+                            else
+                                mView.showError(TypeAlert.TYPE_INFO, R.string.errorResultEmpty,"");
                         }
 
                         @Override
                         public void onError(Throwable e) {
-                            mView.showError(TypeError.ERROR_DATA_SERVICE, e.getMessage());
+                            mView.showError(TypeAlert.TYPE_ERROR,  R.string.errorProductSearch,e.getMessage());
                             mView.hideProgress();
                         }
 
                         @Override
                         public void onComplete() {
-                            mView.showComplete();
                             mView.hideProgress();
                         }
                     });
         }else{
-            mView.showError(TypeError.ERROR_VALIDATION_DATA,"");
+            mView.showError(TypeAlert.TYPE_INFO,R.string.errorDataEmpty,"");
         }
     }
 }

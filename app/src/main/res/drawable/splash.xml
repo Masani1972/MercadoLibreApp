@@ -8,7 +8,7 @@
     <!-- App logo -->
     <item>
         <bitmap
-            android:src="@drawable/icon"
+            android:src="@drawable/logo"
             android:gravity="center">
         </bitmap>
     </item>

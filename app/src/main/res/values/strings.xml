@@ -5,7 +5,12 @@
     <string name="edtxtProductSearch">Ingrese nombre producto</string>
     <string name="errorProductSearch">Error obteniendo datos </string>
     <string name="errorDataEmpty">Debe ingresar datos para la búsqueda </string>
+    <string name="errorResultEmpty">No se encontraron resultados para su búsqueda </string>
 
     <!--Fragment Detail-->
     <string name="txtPhotos">Fotos</string>
+    <string name="txtCondition">Condición: </string>
+
+    <!-- AlertDialod-->
+    <string name="tittleAlert">Mercado Libre </string>
 </resources>

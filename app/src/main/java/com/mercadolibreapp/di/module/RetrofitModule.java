@@ -22,7 +22,7 @@ public class RetrofitModule {
     @ApplicationScope
     Retrofit getRetrofit(OkHttpClient okHttpClient){
         return new Retrofit.Builder()
-                .baseUrl(Constanst.baseURL)
+                .baseUrl(Constanst.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(getOkHttpClient(getHttpLoggingInterceptor()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())

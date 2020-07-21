@@ -1,5 +1,6 @@
 package com.mercadolibreapp.ui.detail_products;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -9,20 +10,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.mercadolibreapp.R;
 import com.mercadolibreapp.R2;
 import com.mercadolibreapp.common.MyApplication;
-import com.mercadolibreapp.data.network.pojo.PictureProduct;
+import com.mercadolibreapp.data.network.pojo.Descriptions;
 import com.mercadolibreapp.data.network.pojo.ProductInfo;
 import com.mercadolibreapp.di.component.ApplicationComponent;
 import com.mercadolibreapp.di.component.DaggerDetailFragmentComponent;
 import com.mercadolibreapp.di.component.DetailFragmentComponent;
 import com.mercadolibreapp.di.module.DetailFragmentMvpModule;
 import com.mercadolibreapp.ui.detail_products.adapter.ViewPagerAdapter;
+import com.mercadolibreapp.utils.TypeAlert;
+import com.mercadolibreapp.utils.UtilAlertClassBuilder;
 
-import java.util.List;
 
 import javax.inject.Inject;
 
@@ -33,10 +34,19 @@ import butterknife.ButterKnife;
 public class DetailProductFragment extends Fragment implements DetailProductContract.View {
 
     @BindView(R2.id.view_pager)
-    ViewPager view_pager;
+    ViewPager viewPager;
 
     @BindView(R2.id.txtCountPhotos)
     TextView txtCountPhotos;
+
+    @BindView(R2.id.txtName)
+    TextView txtName;
+
+    @BindView(R2.id.txtCondition)
+    TextView txtCondition;
+
+    @BindView(R2.id.txtDescription)
+    TextView txtDescription;
 
     @Inject
     DetailPresenterImpl presenter;
@@ -44,10 +54,8 @@ public class DetailProductFragment extends Fragment implements DetailProductCont
     DetailFragmentComponent detailFragmentComponent;
 
     private static final String ARG_ID_PRODUCT = "id";
-
-    private List<PictureProduct> listImages;
     private ViewPagerAdapter adapter;
-
+    private ProductInfo productInfo;
 
     public static DetailProductFragment newInstance(String id) {
         DetailProductFragment fragment = new DetailProductFragment();
@@ -60,22 +68,17 @@ public class DetailProductFragment extends Fragment implements DetailProductCont
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         ApplicationComponent applicationComponent = MyApplication.get(this).getApplicationComponent();
-
         detailFragmentComponent = DaggerDetailFragmentComponent.builder()
                 .detailFragmentMvpModule(new DetailFragmentMvpModule(this))
                 .applicationComponent(applicationComponent)
                 .build();
-
         detailFragmentComponent.injectDetailFragment(this);
-
         if (getArguments() != null) {
             String id = getArguments().getString(ARG_ID_PRODUCT);
             presenter.getProductInfo(id);
         }
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -87,22 +90,39 @@ public class DetailProductFragment extends Fragment implements DetailProductCont
         return rootView;
     }
 
-
     private void initViews() {
-        txtCountPhotos.setText(listImages.size() + "  " + getResources().getString(R.string.txtPhotos));
+        txtCountPhotos.setText(productInfo.pictures.size() + "  " + getResources().getString(R.string.txtPhotos));
+        txtName.setText(productInfo.name);
+        txtCondition.setText(getResources().getString(R.string.txtCondition) + " " +productInfo.condition);
+        txtDescription.setText(getDescription(productInfo));
     }
 
     @Override
     public void showData(ProductInfo productInfo) {
-        listImages = productInfo.pictures;
-        adapter.setImages(listImages);
-        view_pager.setAdapter(adapter);
+        this.productInfo =  productInfo;
+        adapter.setImages(productInfo.pictures);
+        viewPager.setAdapter(adapter);
         initViews();
     }
 
     @Override
     public void showError(String message) {
-        Toast.makeText(getActivity().getBaseContext(),  message , Toast.LENGTH_SHORT).show();
+        AlertDialog alertDialog = new UtilAlertClassBuilder(getActivity())
+                .setTitle(getResources().getString(R.string.tittleAlert))
+                .setMessage(message)
+                .setType(TypeAlert.TYPE_ERROR).build();
+
+        alertDialog.show();
+    }
+
+    private String getDescription(ProductInfo productInfo) {
+        String descriptionText = "";
+        if (!productInfo.descriptions.isEmpty()) {
+            for (Descriptions description : productInfo.descriptions) {
+                descriptionText += description.id ;
+            }
+        }
+        return descriptionText;
     }
 
 }

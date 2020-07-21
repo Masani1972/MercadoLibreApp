@@ -44,8 +44,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public void onBindViewHolder(ViewHolder holder, int position) {
         Context context = holder.itemView.getContext();
         holder.txtName.setText(data.get(position).name);
-        holder.txtPrice.setText(data.get(position).price);
-        String url = data.get(position).thumbnail.replaceAll("http","https");
+        holder.txtPrice.setText("$"+data.get(position).price);
+        String url = data.get(position).thumbnail.replace("http","https");
         Picasso.with(context).load(url).into(holder.ivPreview);
     }
 

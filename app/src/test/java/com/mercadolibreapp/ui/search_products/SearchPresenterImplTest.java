@@ -4,7 +4,7 @@ package com.mercadolibreapp.ui.search_products;
 import com.mercadolibreapp.data.network.ApiService;
 import com.mercadolibreapp.data.network.pojo.ProductModel;
 import com.mercadolibreapp.data.network.pojo.SearchProductsResponse;
-import com.mercadolibreapp.utils.TypeError;
+import com.mercadolibreapp.utils.TypeAlert;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -48,13 +48,13 @@ public class SearchPresenterImplTest {
     @Test
     public void searchProduct_valueEmpty() {
         searchPresenter.searchProduct("");
-        verify(view).showError(TypeError.ERROR_VALIDATION_DATA, "");
+        verify(view).showError(TypeAlert.TYPE_INFO, "");
     }
 
     @Test
     public void searchProduct_valuenull() {
         searchPresenter.searchProduct(null);
-        verify(view).showError(TypeError.ERROR_VALIDATION_DATA, "");
+        verify(view).showError(TypeAlert.TYPE_INFO, "");
     }
 
     @Test

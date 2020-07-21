@@ -20,3 +20,6 @@ public interface SearchActivityComponent  {
 
     void injectSearchActivity(SearchActivity searchActivity);
 }
+
+
+

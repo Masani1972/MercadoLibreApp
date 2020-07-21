@@ -39,9 +39,9 @@ public class ViewPagerAdapter extends PagerAdapter {
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         ImageView imageView = new ImageView(context);
 
-        String url = images.get(position).url.replaceAll("http","https");
+       // String url = images.get(position).url.replaceAll("http","https");
         Picasso.with(context)
-                .load(url)
+                .load(images.get(position).url)
                 .resize(200, 200)
                 .centerInside()
                 .into(imageView);

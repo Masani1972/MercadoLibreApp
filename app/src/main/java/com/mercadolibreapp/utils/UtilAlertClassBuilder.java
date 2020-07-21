@@ -33,6 +33,9 @@ public class UtilAlertClassBuilder {
             case TYPE_ERROR:
                 alert.setIcon(android.R.drawable.ic_dialog_alert);
                 break;
+            default:
+                alert.setIcon(R.drawable.icon);
+                break;
         }
         return this;
     }

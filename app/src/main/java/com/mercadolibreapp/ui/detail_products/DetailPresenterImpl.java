@@ -32,7 +32,7 @@ public class DetailPresenterImpl implements DetailProductContract.Presenter {
 
                     @Override
                     public void onSubscribe(Disposable d) {
-
+                        // Do nothing
                     }
 
                     @Override
@@ -47,6 +47,7 @@ public class DetailPresenterImpl implements DetailProductContract.Presenter {
 
                     @Override
                     public void onComplete() {
+                        // Do nothing
                     }
                 });
     }

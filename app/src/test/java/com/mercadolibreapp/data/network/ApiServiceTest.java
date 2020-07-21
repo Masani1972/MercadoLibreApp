@@ -90,7 +90,7 @@ public class ApiServiceTest {
         assertThat(observable.values(), Matchers.<ProductInfo>hasSize(1));
         ProductInfo productInfo = observable.values().get(0);
         assertNotNull(productInfo);
-        assertEquals(productInfo.name, "Moto G6 Plus 64 Gb Índigo Oscuro 4 Gb Ram");
+        assertEquals("Moto G6 Plus 64 Gb Índigo Oscuro 4 Gb Ram",productInfo.name);
     }
 
     @Test
@@ -124,8 +124,8 @@ public class ApiServiceTest {
                 return "{\n" +
                         "  \"id\": \"MLA861732979\",\n" +
                         "  \"title\": \"Moto G6 Plus 64 Gb Índigo Oscuro 4 Gb Ram\",\n" +
-                        "  \"pictures\": []\n" +
-                      // "  \"descriptions\": [],\n" +
+                        "  \"pictures\": [],\n" +
+                         "  \"descriptions\": []\n" +
                         "}\n";
             default:
                 return "";

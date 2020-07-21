@@ -10,8 +10,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import com.mercadolibreapp.R;
 import com.mercadolibreapp.R2;
@@ -27,7 +27,6 @@ import com.mercadolibreapp.di.module.SearchActivityContextModule;
 import com.mercadolibreapp.di.module.SearchActivityMvpModule;
 import com.mercadolibreapp.ui.result_products.ResultProductsFragment;
 import com.mercadolibreapp.utils.TypeAlert;
-import com.mercadolibreapp.utils.TypeError;
 import com.mercadolibreapp.utils.UtilAlertClassBuilder;
 
 import java.io.Serializable;
@@ -47,10 +46,14 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
     @BindView(R2.id.progressBar)
     ProgressBar progressBar;
 
+    @BindView(R2.id.frProducts)
+    FrameLayout frameLayout;
+
     SearchActivityComponent searchActivityComponent;
 
     @Inject
     ResultProductsFragment resultProductsFragment;
+
 
     @Inject
     @ApplicationContext
@@ -84,7 +87,6 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
     protected boolean searchProduct(int actionId) {
         if (actionId == EditorInfo.IME_ACTION_SEARCH) {
             searchPresenter.searchProduct(productSearch.getText().toString());
-           // searchPresenter.searchProduct("Samsung Galaxy S8");
             return true;
         }
         return false;
@@ -92,6 +94,7 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
 
     @Override
     public void showData(List<ProductModel> data) {
+        frameLayout.setAlpha(1f);
         Bundle dataBundle = new Bundle();
         dataBundle.putSerializable("list_products", (Serializable) data);
         Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.frProducts);
@@ -108,12 +111,12 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
     }
 
     @Override
-    public void showError(TypeError typeError,String statusMessage) {
-        String message = typeError.name().equals(TypeError.ERROR_DATA_SERVICE)?getResources().getString(R.string.errorProductSearch): getResources().getString(R.string.errorDataEmpty);
+    public void showError(TypeAlert typeAlert, int stringResource,String message) {
+        String messageAlert = getResources().getString(stringResource) + " " +  message;
         AlertDialog alertDialog = new UtilAlertClassBuilder(this)
-                .setTitle(getResources().getString(R.string.app_name))
-                .setMessage(message)
-                .setType(TypeAlert.TYPE_INFO).build();
+                .setTitle(getResources().getString(R.string.tittleAlert))
+                .setMessage(messageAlert)
+                .setType(typeAlert).build();
 
         alertDialog.show();
     }
@@ -128,10 +131,6 @@ public class SearchActivity extends FragmentActivity implements SearchActivityCo
         progressBar.setVisibility(View.GONE);
     }
 
-    @Override
-    public void showComplete() {
-
-    }
 
 
 }

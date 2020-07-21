@@ -93,6 +93,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/data/network/pojo/Descriptions.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/app/src/main/java/com/mercadolibreapp/data/network/pojo/ListProductResponseModel.java">
           <value>
             <set />

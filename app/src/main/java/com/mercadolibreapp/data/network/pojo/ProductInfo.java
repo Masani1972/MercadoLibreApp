@@ -11,12 +11,16 @@ public class ProductInfo {
     @Expose
     public String name;
 
-    @SerializedName("garantía")
-    @Expose
-    public String garantía;
-
-
    @SerializedName("pictures")
     @Expose
     public List<PictureProduct> pictures;
+
+    @SerializedName("descriptions")
+    @Expose
+    public List<Descriptions> descriptions;
+
+    @SerializedName("condition")
+    @Expose
+    public String condition;
+
 }

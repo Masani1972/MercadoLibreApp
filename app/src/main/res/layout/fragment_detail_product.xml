@@ -6,34 +6,80 @@
     android:background="@color/colorAccent"
     tools:context=".ui.detail_products.DetailProductFragment">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorWhite"
-        android:orientation="vertical">
+        android:layout_height="match_parent">
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@color/colorWhite"
-        >
-    </androidx.viewpager.widget.ViewPager>
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/txtCountPhotos"
-            android:text="@string/txtPhotos"
-            android:layout_marginLeft="30dp"
-            android:layout_marginBottom="10dp"
-            android:textColor="@color/colorWhite"
-            android:font="@font/lato_regular"
-            android:textSize="18dp"
-            android:padding="5dp"
-            android:background="@color/colorAccent">
+            android:orientation="vertical">
 
-        </TextView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:orientation="vertical">
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:background="@color/colorWhite"></androidx.viewpager.widget.ViewPager>
+                <TextView
+                    android:id="@+id/txtCountPhotos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorAccent"
+                    android:font="@font/lato_regular"
+                    android:padding="5dp"
+                    android:text="@string/txtPhotos"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="18dp">
 
-    </LinearLayout>
+                </TextView>
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_margin="30dp">
+
+                <TextView
+                    android:id="@+id/txtName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:font="@font/lato_regular"
+                    android:textSize="28dp">
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txtDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:font="@font/lato_regular"
+                    >
+                </TextView>
+
+                <TextView
+                    android:id="@+id/txtCondition"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:font="@font/lato_regular"
+                    >
+                </TextView>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 
 </FrameLayout>

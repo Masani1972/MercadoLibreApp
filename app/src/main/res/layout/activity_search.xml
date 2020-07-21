@@ -11,14 +11,16 @@
         android:id="@+id/edtxtProductSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp"
+        android:drawableLeft="@android:drawable/ic_menu_search"
+        android:font="@font/lato_regular"
         android:hint="@string/edtxtProductSearch"
         android:imeOptions="actionSearch"
         android:inputType="text"
-        android:font="@font/lato_regular"
+        android:padding="20dp"
         android:textColor="@color/colorPrimaryDark"
-        android:drawableLeft="@android:drawable/ic_menu_search"
-        />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <ProgressBar
@@ -39,7 +41,17 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtxtProductSearch"></FrameLayout>
+        android:background="@android:color/transparent"
+        app:layout_constraintTop_toBottomOf="@+id/edtxtProductSearch"
+        android:alpha="0.3">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/logo_search" />
+    </FrameLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
