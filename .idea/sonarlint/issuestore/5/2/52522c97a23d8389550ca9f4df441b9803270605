@@ -1,8 +1,5 @@
 
-M
-java:S1128
-"+Remove this unused import 'java.util.List'.(Õë±Äøÿÿÿÿ8¶ÕßÂ¶.
 
-java:S1186)"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(úÑ¯¤8Üòê÷´.
-l
-java:S1128"ORemove this unused import 'com.mercadolibreapp.data.network.pojo.ProductModel'.(´Ç¾˜8¶ÕßÂ¶.
+java:S1186("€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(úÑ¯¤8Üòê÷´.
+W
+java:S1128":Remove this unused import 'android.content.res.Resources'.(ÿÃÜó8ö‰â‘·.
