@@ -25,3 +25,7 @@ Detail Product
 
 ![ScreenShote](detailProduct.gif)
 
+   [Dagguer]: <https://dagger.dev/>
+   [Rx Java]: <http://reactivex.io/>
+   [Retrofit]: <https://square.github.io/retrofit/>
+   [Butter Knife]: <https://jakewharton.github.io/butterknife/>
