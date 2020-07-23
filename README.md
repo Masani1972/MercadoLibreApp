@@ -19,3 +19,9 @@ Dependencies:
 
 Search Product
 
+![ScreenShot](searchProduct.png)
+
+Detail Product
+
+![ScreenShote](detailProduct.mp4)
+
