@@ -23,5 +23,5 @@ Search Product
 
 Detail Product
 
-![ScreenShote](detailProduct.mp4)
+![ScreenShote](detailProduct.gif)
 
